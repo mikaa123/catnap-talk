@@ -34,6 +34,25 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+
+    <style>
+    @-webkit-keyframes rotate {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    .woohoo
+    {
+      -webkit-animation-name:             rotate;
+      -webkit-animation-duration:         1s;
+      -webkit-animation-iteration-count:  infinite;
+      -webkit-transition-timing-function: linear;
+    }
+    </style>
   </head>
 
   <body>
@@ -62,7 +81,13 @@
           <img src="motdapi.png">
         </section>
         <section>
-          <h2>API-Blueprint</h2>
+          <h2>It lets you define transactions</h2>
+        </section>
+        <section>
+          <img src="reqres.png">
+          <p class="fragment">By giving examples</p>
+        </section>
+        <section>
           <p class="fragment">An API-Blueprint parser creates an AST.</p>
           <p class="fragment">This AST is used to create wonderous tooling!</p>
         </section>
@@ -156,6 +181,50 @@ var userResource = makeResource('user', '/users/:userId')
         </section>
       </section>
 
+      <section data-background="#F0A91B">
+        <h2>Dredd</h2>
+      </section>
+
+      <section>
+        <section data-background="#F0A91B">
+          <p>Takes your API-Blueprint documentation,</p>
+          <p class="fragment grow">and runs your examples against your actual code</p>
+        </section>
+
+        <section data-background="#F0A91B" data-state="dancing">
+          <p style="font-size: 5em;" id="dancer">╰(*´︶`*)╯</p>
+        </section>
+
+        <section data-background="#F0A91B" data-state="dancing">
+          <img src="dredd.gif">
+        </section>
+
+        <section data-background="#F0A91B" data-state="dancing">
+          Ensures <strong>consistency</strong> between your code and your doc.
+          <p class="fragment">Integrates well with <strong>continuous integration</strong> systems.</p>
+        </section>
+      </section>
+
+      <section data-background="#D63C3A">
+        <h2>What's next?</h2>
+      </section>
+
+      <section>
+        <section data-background="#D63C3A">
+          <h2>Documentation Driven Development?</h2>
+        </section>
+
+        <section data-background="#D63C3A">
+          <h2>Write the doc. Let tools help you.</h2>
+          <p class="fragment">Generate <strong>code</strong> from your documentation</p>
+          <p class="fragment">TDD the resulting code with Dredd</p>
+        </section>
+
+        <section data-background="#D63C3A">
+          <h2>Create a better<br>“developer experience”.</h2>
+        </section>
+      </section>
+
       </div>
 
     </div>
@@ -185,6 +254,12 @@ var userResource = makeResource('user', '/users/:userId')
           { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
           { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
+      });
+
+      Reveal.addEventListener( 'dancing', function() {
+        window.setTimeout(function() {
+          document.querySelectorAll('#dancer')[0].setAttribute('class', 'woohoo');
+        }, 1000);
       });
 
     </script>
